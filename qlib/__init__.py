@@ -1,7 +1,11 @@
 import redis
+from abc import ABCMeta, abstractmethod
+
+__version__ = "0.0.1"
 
 
-class Queue:
+class Queue(metaclass=ABCMeta):
+    @abstractmethod
     def __init__(self, service_name, host, port=6379, dbnum=0):
         self.service_name = service_name
         self.redis = redis.StrictRedis(
@@ -10,6 +14,8 @@ class Queue:
             db=dbnum
         )
 
+
+class UnreliablePriorityQueue(Queue):
     def _gen_queue_key(self, priority):
         if int(priority) not in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
             raise ValueError("Priority must be an int such that 0 < priority < 10")
@@ -36,3 +42,8 @@ class Queue:
                 if q:
                     return q.decode("utf-8")
             return None
+
+
+class ReliablePriorityQueue(Queue):
+    # TODO?
+    pass

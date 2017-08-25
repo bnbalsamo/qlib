@@ -5,7 +5,7 @@ from random import shuffle
 
 class Tests(unittest.TestCase):
     def setUp(self):
-        self.q = qlib.Queue("testApp", "localhost")
+        self.q = qlib.UnreliablePriorityQueue("testApp", "localhost")
 
     def tearDown(self):
         for x in self.q._gen_queue_keys():

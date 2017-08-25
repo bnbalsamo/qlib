@@ -1,6 +1,8 @@
 # qlib
 [![Build Status](https://travis-ci.org/bnbalsamo/qlib.svg?branch=master)](https://travis-ci.org/bnbalsamo/qlib)  [![Coverage Status](https://coveralls.io/repos/github/bnbalsamo/qlib/badge.svg?branch=master)](https://coveralls.io/github/bnbalsamo/qlib?branch=master)
 
+v0.0.1
+
 A library, shared amongst repository microservices, which handles logic utilizing
 "unreliable" priority queues.
 

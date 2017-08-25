@@ -6,6 +6,7 @@ def readme():
 
 setup(
     name = "qlib",
+    version = "0.0.1",
     description = "A library for use by the digital repository " +
     "microservices to handle queuing operations",
     long_description = readme(),
