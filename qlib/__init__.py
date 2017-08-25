@@ -16,6 +16,9 @@ class Queue(metaclass=ABCMeta):
 
 
 class UnreliablePriorityQueue(Queue):
+    def __init__(self, service_name, host, port=6379, dbnum=0):
+        super().__init__(service_name, host, port=port, dbnum=dbnum)
+
     def _gen_queue_key(self, priority):
         if int(priority) not in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
             raise ValueError("Priority must be an int such that 0 < priority < 10")
