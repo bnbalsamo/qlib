@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name="qlib",
-    description="A library for implementing "unreliable" redis priority queues.",
+    description="A library for implementing 'unreliable' redis priority queues.",
     version="0.0.1",
     long_description=readme(),
     author="Brian Balsamo",
