@@ -1,6 +1,5 @@
 import unittest
 import qlib
-from random import shuffle
 
 
 class Tests(unittest.TestCase):
@@ -11,6 +10,14 @@ class Tests(unittest.TestCase):
         for x in self.q._gen_queue_keys():
             self.q.redis.delete(x)
         del self.q
+
+    def testPass(self):
+        self.assertEqual(True, True)
+
+    def testVersionAvailable(self):
+        x = getattr(qlib, "__version__", None)
+        self.assertTrue(x is not None)
+
 
     def test_block_false(self):
         self.assertEqual(
@@ -65,6 +72,7 @@ class Tests(unittest.TestCase):
                 self.q.retrieve_identifier(),
                 str(x)
             )
+
 
 
 if __name__ == "__main__":

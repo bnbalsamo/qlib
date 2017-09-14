@@ -1,6 +1,11 @@
+"""
+qlib
+"""
 import redis
 from abc import ABCMeta, abstractmethod
 
+__author__ = "Brian Balsamo"
+__email__ = "brian@brianbalsamo.com"
 __version__ = "0.0.1"
 
 
@@ -45,8 +50,3 @@ class UnreliablePriorityQueue(Queue):
                 if q:
                     return q.decode("utf-8")
             return None
-
-
-class ReliablePriorityQueue(Queue):
-    # TODO?
-    pass
