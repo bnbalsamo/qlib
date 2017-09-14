@@ -1,5 +1,6 @@
 import unittest
 import qlib
+from random import shuffle
 
 
 class Tests(unittest.TestCase):
