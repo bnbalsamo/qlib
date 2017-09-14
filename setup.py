@@ -20,6 +20,7 @@ setup(
     include_package_data=True,
     url='https://github.com/bnbalsamo/qlib',
     install_requires=[
+        'redis'
     ],
     tests_require=[
         'pytest'
