@@ -1,20 +1,29 @@
 from setuptools import setup, find_packages
 
+
 def readme():
     with open("README.md", 'r') as f:
         return f.read()
 
+
 setup(
-    name = "qlib",
-    version = "0.0.1",
-    description = "A library for use by the digital repository " +
-    "microservices to handle queuing operations",
-    long_description = readme(),
-    packages = find_packages(
-        exclude = [
+    name="qlib",
+    description="A library for implementing 'unreliable' redis priority queues.",
+    version="0.0.1",
+    long_description=readme(),
+    author="Brian Balsamo",
+    author_email="brian@brianbalsamo.com",
+    packages=find_packages(
+        exclude=[
         ]
     ),
-    install_requires = [
+    include_package_data=True,
+    url='https://github.com/bnbalsamo/qlib',
+    install_requires=[
         'redis'
     ],
+    tests_require=[
+        'pytest'
+    ],
+    test_suite='tests'
 )

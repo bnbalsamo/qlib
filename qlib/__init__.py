@@ -1,6 +1,11 @@
+"""
+qlib
+"""
 import redis
 from abc import ABCMeta, abstractmethod
 
+__author__ = "Brian Balsamo"
+__email__ = "brian@brianbalsamo.com"
 __version__ = "0.0.1"
 
 
@@ -22,10 +27,10 @@ class UnreliablePriorityQueue(Queue):
     def _gen_queue_key(self, priority):
         if int(priority) not in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
             raise ValueError("Priority must be an int such that 0 < priority < 10")
-        return self.service_name+"::"+str(priority)
+        return self.service_name + "::" + str(priority)
 
     def _gen_queue_keys(self):
-        return [self.service_name+"::"+str(x) for x in [1, 2, 3, 4, 5, 6, 7, 8, 9]]
+        return [self.service_name + "::" + str(x) for x in [1, 2, 3, 4, 5, 6, 7, 8, 9]]
 
     def add_identifier(self, identifier, priority=9):
         return self.redis.lpush(self._gen_queue_key(priority), identifier)
@@ -45,8 +50,3 @@ class UnreliablePriorityQueue(Queue):
                 if q:
                     return q.decode("utf-8")
             return None
-
-
-class ReliablePriorityQueue(Queue):
-    # TODO?
-    pass

@@ -12,6 +12,13 @@ class Tests(unittest.TestCase):
             self.q.redis.delete(x)
         del self.q
 
+    def testPass(self):
+        self.assertEqual(True, True)
+
+    def testVersionAvailable(self):
+        x = getattr(qlib, "__version__", None)
+        self.assertTrue(x is not None)
+
     def test_block_false(self):
         self.assertEqual(
             self.q.retrieve_identifier(block=False),
@@ -56,7 +63,7 @@ class Tests(unittest.TestCase):
             self.q.add_identifier("abcd", -1)
 
     def test_priorities_respected(self):
-        priorities = [1,2,3,4,5,6,7,8,9]
+        priorities = [1, 2, 3, 4, 5, 6, 7, 8, 9]
         shuffle(priorities)
         for x in priorities:
             self.q.add_identifier(str(x), x)
