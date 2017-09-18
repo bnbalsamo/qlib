@@ -6,7 +6,7 @@ from abc import ABCMeta, abstractmethod
 
 __author__ = "Brian Balsamo"
 __email__ = "brian@brianbalsamo.com"
-__version__ = "0.0.3"
+__version__ = "0.0.4"
 
 
 class Queue(metaclass=ABCMeta):
